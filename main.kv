@@ -92,6 +92,7 @@ MDBottomNavigation:
             MDScrollView:
                 size_hint_y:0.8
                 MDBoxLayout:
+                    id:online_theme_lower
                     adaptive_height:True
                     padding:dp(10)
                     orientation:"vertical"
@@ -112,9 +113,11 @@ MDBottomNavigation:
                         MDIconButton:
                             icon:"chevron-right"
                             pos_hint:{"center_x":0.98,"center_y":0.5}
+                            on_press:online_theme_top.load_next(mode='next')
                         MDIconButton:
                             icon:"chevron-left"
                             pos_hint:{"center_x":0.02,"center_y":0.5}
+                            on_press:online_theme_top.load_previous()
 
                     MDLabel:
                         text:"Online Themes"

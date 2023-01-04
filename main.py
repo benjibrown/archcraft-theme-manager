@@ -8,6 +8,7 @@ from kivy.animation import Animation
 from kivy.metrics import dp
 from kivy.clock import Clock
 from kivy.loader import Loader
+from shutil import which
 import json
 import os
 import _thread
@@ -45,6 +46,7 @@ class ThemeManager(MDApp):
     def on_start(self):
         self.load_local_themes()
         self.load_popular()
+        self.load_online()
 
     def load_popular(self):
         for theme in self.themes["Popular"].keys():
@@ -52,6 +54,13 @@ class ThemeManager(MDApp):
             Widget.source = self.themes["Popular"][theme]["thumbnail"]
             Widget.text = "{} by {}".format(theme,self.themes["Popular"][theme]["maker"])
             self.root.ids.online_theme_top.add_widget(Widget)
+
+    def load_online(self):
+        for theme in self.themes["Online"].keys():
+            Widget = ThemeViewOnline()
+            Widget.source = self.themes["Online"][theme]["thumbnail"]
+            Widget.text = "{} by {}".format(theme,self.themes["Online"][theme]["maker"])
+            self.root.ids.online_theme_lower.add_widget(Widget)
 
     def load_local_themes(self,*args):
         Animation(opacity=0,d=0.2).start(self.root.ids.local_themes)
@@ -86,7 +95,7 @@ class ThemeManager(MDApp):
 
     def apply_theme(self,theme):
         if os.path.exists(self.current_theme_file[:-9]+f"/{theme}/apply.sh"):
-            _thread.start_new_thread(lambda x,y: os.system(self.current_theme_file[:-8]+f"/{theme}/apply.sh"),("",""))
+            _thread.start_new_thread(lambda x,y: os.system(which("bash")+" "+self.current_theme_file[:-8]+f"/{theme}/apply.sh &"),("",""))
             Clock.schedule_once(self.load_local_themes)
 
     def get_current_theme(self) -> str:

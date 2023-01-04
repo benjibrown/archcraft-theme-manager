@@ -4,12 +4,7 @@
             "thumbnail":"https://cdn.discordapp.com/attachments/1059398371107950702/1060164497077186601/Screenshot_2023-01-04_115320.png",
             "downloadurl":"https://cdn.discordapp.com/attachments/1059398371107950702/1060197156310499349/decay-ob-theme.tar.gz",
             "maker":"Lamp"
-        },
-        "Catppuccin":{
-            "thumbnail":"https://cdn.discordapp.com/attachments/1059398371107950702/1059805404772700230/Screenshot_2023-01-03_120728.png",
-            "downloadurl":"https://github.com/benjibrown/ricing/blob/main/catppuccin-ob-theme.tar.gz?raw=true",
-            "maker":"Lamp"
-        },
+       },
         "Dracula":{
             "thumbnail":"https://cdn.discordapp.com/attachments/1059398371107950702/1059536128547491910/image.png",
             "downloadurl":"https://github.com/benjibrown/ricing/blob/main/dracula-ob-theme.tar.gz?raw=true",
@@ -18,6 +13,10 @@
     },
 
     "Online":{
-
+        "Catppuccin":{
+            "thumbnail":"https://cdn.discordapp.com/attachments/1059398371107950702/1059805404772700230/Screenshot_2023-01-03_120728.png",
+            "downloadurl":"https://github.com/benjibrown/ricing/blob/main/catppuccin-ob-theme.tar.gz?raw=true",
+            "maker":"Lamp"
+        }
     }
 }
