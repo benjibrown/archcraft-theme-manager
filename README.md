@@ -2,6 +2,7 @@
 
 Archcraft Themes Manager (in development)
 
+
 ## Installation
 
 First, you must install `kivy` with:
