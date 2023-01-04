@@ -2,13 +2,13 @@
 
 Archcraft Themes Manager (in development)
 
-## How to run?
+## Installation
 
-Install `python-kivy` with:
+First, you must install `kivy` with:
 ```
 sudo pacman -S python-kivy
 ```
-Clone the repository and run `main.py` with python. That's it!
+Then, clone the repository and run `main.py` with python. That's it!
  
 
 Some screenshots of initial release:
