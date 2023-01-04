@@ -1,0 +1,150 @@
+<ThemeView>:
+    source:""
+    text:""
+    size_hint_y:None
+    size:dp(50),dp(180)
+    FitImage:
+        size_hint:0.8,None
+        size:dp(50),dp(180)
+        radius:dp(10)
+        source:root.source
+    FitImage:
+        size_hint:0.8,None
+        size:dp(50),dp(180)
+        radius:dp(10)
+        source:"./assets/shadow-black-down.png"
+    RelativeLayout:
+        MDLabel:
+            pos_hint:{"center_y":0.12,"center_x":0.5}
+            text:root.text
+            halign:"center"
+            font_name:app.regular_font
+        MDIconButton:
+            id:is_current
+            icon:"check"
+            pos_hint:{"center_y":0.12,"center_x":0.8}
+            opacity:0
+            ripple_scale:0
+            theme_icon_color:"Custom"
+            icon_color:app.theme_cls.accent_light
+
+    MDCard:
+        size_hint:0.815,None
+        size:dp(50),dp(185)
+        radius:dp(10)
+        md_bg_color:0,0,0,0
+        on_press:app.apply_theme(root.text.lower())
+
+
+<ThemeViewOnline>:
+    size_hint:1,None
+    size:dp(50),dp(180)
+    source:""
+    text:""
+    FitImage:
+        size_hint:0.85,None
+        size:dp(50),dp(180)
+        radius:dp(10)
+        source:root.source
+    FitImage:
+        size_hint:0.85,None
+        size:dp(50),dp(180)
+        radius:dp(10)
+        source:"./assets/shadow-black-down.png"
+    RelativeLayout:
+        MDLabel:
+            pos_hint:{"center_y":0.12,"center_x":0.4}
+            text:root.text
+            halign:"center"
+            font_name:app.regular_font
+        MDIconButton:
+            icon:"chevron-right"
+            pos_hint:{"center_y":0.12,"center_x":0.75}
+        MDIconButton:
+            icon:"download"
+            pos_hint:{"center_y":0.12,"center_x":0.85}
+
+MDBottomNavigation:
+    font_name:app.medium_font
+    radius:dp(10)
+    selected_color_background:app.theme_cls.bg_normal[:-1] + [0.5]
+    MDBottomNavigationItem:
+        name:"online"
+        md_bg_color:app.theme_cls.bg_normal
+        icon:"earth"
+        text:"Online Themes"
+        MDLabel:
+            text:"Hi, {}".format(app.name_linux)
+            font_name:app.bold_font
+            pos_hint:{"center_x":0.53,"center_y":0.95}
+            font_size:"35sp"
+        M_CardTextField:
+            text:""
+            hint_text:"Search Themes"
+            size_hint_x:0.95
+            pos_hint:{"center_x":0.5,"center_y":0.85}
+            icon_left:"magnify"
+            radius:[dp(5) for i in range(4)]
+            font_name:app.medium_font
+            
+        AnchorLayout:
+            anchor_y:"bottom"
+            MDScrollView:
+                size_hint_y:0.8
+                MDBoxLayout:
+                    adaptive_height:True
+                    padding:dp(10)
+                    orientation:"vertical"
+                    spacing:dp(30)
+                    MDLabel:
+                    MDLabel:
+                        text:"Popular"
+                        font_name:app.medium_font
+                        font_size:"15sp"
+                    RelativeLayout:
+                        size_hint_y:None
+                        size:dp(10),dp(200)
+
+                        Carousel:
+                            direction:"right"
+                            id:online_theme_top
+
+                        MDIconButton:
+                            icon:"chevron-right"
+                            pos_hint:{"center_x":0.98,"center_y":0.5}
+                        MDIconButton:
+                            icon:"chevron-left"
+                            pos_hint:{"center_x":0.02,"center_y":0.5}
+
+                    MDLabel:
+                        text:"Online Themes"
+                        font_name:app.medium_font
+                        font_size:"15sp"
+        MDBoxLayout:
+            id:search_box
+            size_hint:1,0.8
+            radius:[dp(20),dp(20),0,0]
+            md_bg_color:app.theme_cls.bg_light
+            pos_hint:{"center_y":-1}
+
+    MDBottomNavigationItem:
+        name:"main"
+        text:"My Themes"
+        md_bg_color:app.theme_cls.bg_normal
+        icon:"account"
+        MDLabel:
+            text:"Local Themes"
+            font_name:app.bold_font
+            pos_hint:{"center_x":0.53,"center_y":0.95}
+            font_size:"35sp"
+        AnchorLayout:
+            anchor_y:"bottom"
+            MDScrollView:
+                size_hint_y:0.85
+                MDBoxLayout:
+                    id:local_themes
+                    adaptive_height:True
+                    padding:dp(10)
+                    orientation:"vertical"
+                    spacing:dp(30)
+
