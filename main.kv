@@ -142,9 +142,15 @@ MDBottomNavigation:
             font_size:"35sp"
         AnchorLayout:
             anchor_y:"bottom"
+            MDLabel:
+                text:"Applying ..."
+                font_name:app.medium_font
+                font_size:"30sp"
+                halign:"center"
             MDScrollView:
                 size_hint_y:0.85
                 MDBoxLayout:
+                    md_bg_color:app.theme_cls.bg_normal
                     id:local_themes
                     adaptive_height:True
                     padding:dp(10)
