@@ -1,0 +1,3 @@
+# Contributing
+
+## Creating Themes
